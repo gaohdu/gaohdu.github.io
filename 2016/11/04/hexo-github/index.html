@@ -1,0 +1,64 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Hexo+Github 搭建个人博客 | Gaopeng blog</title><meta name="description" content="Hexo+Github 搭建个人博客 - GaoPeng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/casual.css"><link rel="stylesheet" href="/css/semantic.min.css"><link rel="search" type="application/opensearchdescription+xml" href="https://gaohdu.github.io/atom.xml" title="Gaopeng blog"></head><body><div class="sidebar"><div class="ui vertical inverted menu"><div class="h100"></div><h3 class="ui inverted aligned icon header"><div class="content"><a href="/" class="title-link">GAOPENG BLOG</a></div></h3><div class="h50"></div><div class="side-nav"><a href="/" target="_self" class="item">HOME<i class="icon home"></i></a><a href="/archives" target="_self" class="item">ARCHIVE<i class="icon archive"></i></a><a href="/tags" target="_self" class="item">TAGS<i class="icon tags"></i></a><a href="/about" target="_self" class="item">INFO<i class="icon info"></i></a><a href="/atom.xml" target="_self" class="item">RSS<i class="icon rss"></i></a></div><div class="item"><div class="ui inverted transparent icon input"><input type="text" placeholder="Search..." class="st-default-search-input"><i class="search icon"></i></div></div><div class="h50"></div></div><div class="h50 mq"><a class="ui teal big label"><i class="content icon"></i></a></div><div class="author-info"><a href="/" class="img-link"><img src="/avatar.png" class="author-photo ui tiny circular image"></a><h4 class="ui aligned icon header"><div class="content">GaoPeng</div></h4><p class="author-desc">gp</p><div class="social-outer"><div class="social-inner"><a href="https://github.com/gaohdu" target="_blank" class="social-link"><i class="icon github"></i></a><a href="http://twitter.com/" target="_blank" class="social-link"><i class="icon twitter"></i></a><a href="http://weibo.com/" target="_blank" class="social-link"><i class="icon weibo"></i></a></div></div></div></div><div class="main"><div class="wrap"><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">Hexo+Github 搭建个人博客</h1><div class="post-info"><div class="post-date"><h6 class="ui header"><i class="calendar icon"></i><div class="content">2016年11月4日</div></h6></div></div><div class="post-content"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前些天，看到身边的一个朋友利用hexo在github上搭建了一个很酷的个人博客，就忍不住也想要一个。马上就百度了一堆教程来看，发现hexo真的好强大，不需要懂前端，只需要一点计算机基础，就能用hexo搭建一个漂亮的个人博客。但是，不要开心的太早，真正自己去动手实现的时候会碰到各种问题，需要耐心的去解决。下面就分享一下我的搭建过程和遇到的问题。</p>
+<p><strong>注意：</strong>我使用的是window系统。</p>
+<h2 id="博客页面生成"><a href="#博客页面生成" class="headerlink" title="博客页面生成"></a>博客页面生成</h2><p><strong>安装Node：</strong>到<a href="https://nodejs.org/en/" target="_blank" rel="external">“Node官网”</a>直接下载并默认安装就OK。</p>
+<p><strong>安装Git：</strong>直接去github官网下载并安装。</p>
+<p><strong>安装Hexo：</strong>打开刚刚安装好的Git Bash来进操作。操作如下：</p>
+<blockquote>
+<p>npm install -g hexo</p>
+</blockquote>
+<p>然后新建一个文件夹用做blog的根目录来存放等下hexo生成的文件，进入到blog根目录后，执行hexo初始化命令:</p>
+<blockquote>
+<p>hexo init</p>
+</blockquote>
+<p>接下来就是要利用hexo来生成静态页面了，继续输入命令：</p>
+<blockquote>
+<p>hexo generate</p>
+</blockquote>
+<p>到此为止，我们的blog页面已经生成好了。我们通过如下命令启动本地服务，并通过浏览器输入<em><a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a></em>，就可以查看生成好的页面了。</p>
+<blockquote>
+<p>hexo server</p>
+</blockquote>
+<p>我们已经完成blog页面的生成并在本地浏览了，想想是不是有点小激动呢？不要着急，还有一半工作等着你去完成。现在还需要把blog部署到Github上，这样就能让大家也能访问到了。</p>
+<p>##博客页面部署##<br>没用过Github的，感觉云里雾里的可以先看看教程，<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">Github教程</a>这是以前看过的一个教程,也可以自己找。</p>
+<p><strong>注册Github帐号</strong></p>
+<p>有Gitbug帐号的无视这一步。没有的帐号的进入<a href="https://github.com" target="_blank" rel="external">Github官网</a>注册一个帐号。</p>
+<p><strong>创建仓库repository</strong></p>
+<p>登录Github，点击<code>New repositor</code>按钮，创建repository时，<em>注意：</em>Repository name的填写格式要按照<code>yourname.github.io</code>格式来填写，把yourname替换成你想要的即可。其它设置默认就行，点击<code>Create repository</code>按钮，你的仓库就建好了。</p>
+<p>这里差一张图</p>
+<p><strong>部署页面到Github</strong></p>
+<p>再对本地配置文件进行一些简单配置后就能把博客放到Github上了，打开blog根目录下的_config.yml（建议使用写字板程序或Notepad++打开）。找到如下地方进行修改，这里是我的配置，这种配置方法还需要配置SSH Key，你需要将repository改成你自己仓库的地址，还有url也用你自己的域名就可以了或者使用Github Pages，在仓库的Settings里查看。<em>注意：要仔细配置文件中每个冒号后面一定要有一个空格，不然会报错！</em></p>
+<p>这里少一个图config。yml的deploy和url的截图</p>
+<p>配置好后执行一下命令：</p>
+<pre><code>npm install hexo-deplyoer-git --save
+hexo g
+hexo d
+</code></pre><p>完成上面的多有操作后，我们在Github上的个人博客就搭建好了，在浏览器中访问自己刚刚配置的域名就能访问了，首次配置完去访问有可能页面找不到，一般情况是等待几分钟就可以访问了。</p>
+<p><strong>新建博文</strong></p>
+<p>在blog的根目录用Git Bash执行</p>
+<blockquote>
+<p>hexo new “new passage”</p>
+</blockquote>
+<p>在根目录的<code>source\_post</code>里打开new—passage.md，打开然后编写博文。在hexo中写文章是要用Markdown，不懂的可以先查看一下<a href="">Markdown程</a>，不用担心很麻烦，Markdown语法非常的简单。生成的md文件里面会自动生成一些固定信息比如<code>tile、date、tags</code>等，tile就是文章的标题可以修改这个来修改发表文章的标题。我们只要在这些信息下方的空白区域用Markdown语法来写文章就行了。<br>写完文章后，使用下列命令来上传就可以了。</p>
+<pre><code>hexo g
+hexo d
+</code></pre><p>当然也可以先通过如下命令来部署到本地来预览效果：</p>
+<pre><code>hexo g
+hexo s
+</code></pre><p>通过上面的教程个人博客已经搭建好并能发表文章了，上面教程是我个人通过学习并动手搭建得出的希望对大家有用。</p>
+<p>##总结##</p>
+<p>在搭建过程中，我遇到了各种问题，但是通过耐心的去查找问题并解决，完成了搭建，感觉真好。当然还有好多后续工作可以做，我还会去美化和完善博客。后续的工作有，更换一个自己喜欢的主题，增加文章评论功能等。这些工作在完成后，还会抽空写写和大家一起分享。</p>
+<blockquote>
+<p>版权声明：本文为博主原创文章，转载请注明出处GaoPeng blog:<a href="https://gaohdu.github.io">https://gaohdu.github.io</a></p>
+</blockquote>
+</div></article></div></section><footer><div class="paginator"></div><div data-thread-key="2016/11/04/hexo-github/" data-title="Hexo+Github 搭建个人博客" data-url="https://gaohdu.github.io/2016/11/04/hexo-github/" class="ds-share"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/11/04/hexo-github/" data-title="Hexo+Github 搭建个人博客" data-url="https://gaohdu.github.io/2016/11/04/hexo-github/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"gaohdu"};
+(function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+   || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+
+</script><div class="copyright"><p>© 2016 <a href="https://gaohdu.github.io">GaoPeng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and theme by <a href="https://github.com/littlewin-wang/hexo-theme-casual" target="_blank">casual</a></p></div></footer></div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script><script src="/js/jquery.scrollex.js"></script><script src="/js/semantic.min.js"></script><script src="/js/casual.js"></script><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);})(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+_st('install','TvAnFS4AVxjiJUvrZJRB','2.0.0');</script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></div></body></html>
