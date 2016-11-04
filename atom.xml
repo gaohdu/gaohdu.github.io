@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gaohdu.github.io/"/>
-  <updated>2016-11-03T16:22:58.321Z</updated>
+  <updated>2016-11-04T16:10:22.689Z</updated>
   <id>https://gaohdu.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://gaohdu.github.io/2016/11/04/hexo-github/"/>
     <id>https://gaohdu.github.io/2016/11/04/hexo-github/</id>
     <published>2016-11-03T16:15:38.000Z</published>
-    <updated>2016-11-03T16:22:58.321Z</updated>
+    <updated>2016-11-04T16:10:22.689Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前些天，看到身边的一个朋友利用hexo在github上搭建了一个很酷的个人博客，就忍不住也想要一个。马上就百度了一堆教程来看，发现hexo真的好强大，不需要懂前端，只需要一点计算机基础，就能用hexo搭建一个漂亮的个人博客。但是，不要开心的太早，真正自己去动手实现的时候会碰到各种问题，需要耐心的去解决。下面就分享一下我的搭建过程和遇到的问题。</p>
 <p><strong>注意：</strong>我使用的是window系统。</p>
@@ -43,15 +43,15 @@
 <p>hexo server</p>
 </blockquote>
 <p>我们已经完成blog页面的生成并在本地浏览了，想想是不是有点小激动呢？不要着急，还有一半工作等着你去完成。现在还需要把blog部署到Github上，这样就能让大家也能访问到了。</p>
-<p>##博客页面部署##<br>没用过Github的，感觉云里雾里的可以先看看教程，<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">Github教程</a>这是以前看过的一个教程,也可以自己找。</p>
+<h2 id="博客页面部署"><a href="#博客页面部署" class="headerlink" title="博客页面部署"></a>博客页面部署</h2><p>没用过Github的，感觉云里雾里的可以先看看教程，<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">Github教程</a>这是以前看过的一个教程,也可以自己找。</p>
 <p><strong>注册Github帐号</strong></p>
 <p>有Gitbug帐号的无视这一步。没有的帐号的进入<a href="https://github.com" target="_blank" rel="external">Github官网</a>注册一个帐号。</p>
 <p><strong>创建仓库repository</strong></p>
 <p>登录Github，点击<code>New repositor</code>按钮，创建repository时，<em>注意：</em>Repository name的填写格式要按照<code>yourname.github.io</code>格式来填写，把yourname替换成你想要的即可。其它设置默认就行，点击<code>Create repository</code>按钮，你的仓库就建好了。</p>
-<p>这里差一张图</p>
 <p><strong>部署页面到Github</strong></p>
-<p>再对本地配置文件进行一些简单配置后就能把博客放到Github上了，打开blog根目录下的_config.yml（建议使用写字板程序或Notepad++打开）。找到如下地方进行修改，这里是我的配置，这种配置方法还需要配置SSH Key，你需要将repository改成你自己仓库的地址，还有url也用你自己的域名就可以了或者使用Github Pages，在仓库的Settings里查看。<em>注意：要仔细配置文件中每个冒号后面一定要有一个空格，不然会报错！</em></p>
-<p>这里少一个图config。yml的deploy和url的截图</p>
+<p>再对本地配置文件进行一些简单配置后就能把博客放到Github上了，打开blog根目录下的_config.yml（建议使用写字板程序或Notepad++打开）。找到如下地方进行修改，这里是我的配置，这种配置方法还需要配置SSH Key，你需要将title、author、repository改成你自己的，还有url也用你自己的域名就可以了或者使用Github Pages，在仓库的Settings里查看自己的Github Pages。<em>注意：要仔细配置文件中每个冒号后面一定要有一个空格，不然会报错！</em></p>
+<p><img src="https://raw.githubusercontent.com/gaohdu/Imgs/master/hexo_img/p1-1.jpg" alt="配置文件截图一"></p>
+<p><img src="https://raw.githubusercontent.com/gaohdu/Imgs/master/hexo_img/p1-2.jpg" alt="配置文件截图二"></p>
 <p>配置好后执行一下命令：</p>
 <pre><code>npm install hexo-deplyoer-git --save
 hexo g
@@ -69,7 +69,7 @@ hexo d
 <pre><code>hexo g
 hexo s
 </code></pre><p>通过上面的教程个人博客已经搭建好并能发表文章了，上面教程是我个人通过学习并动手搭建得出的希望对大家有用。</p>
-<p>##总结##<br>在搭建过程中，我遇到了各种问题，但是通过耐心的去查找问题并解决，完成了搭建，感觉真好。当然还有好多后续工作可以做，我还会去美化和完善博客。后续的工作有，更换一个自己喜欢的主题，增加文章评论功能等。这些工作在完成后，还会抽空写写和大家一起分享。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在搭建过程中，我遇到了各种问题，但是通过耐心的去查找问题并解决，完成了搭建，感觉真好。当然还有好多后续工作可以做，我还会去美化和完善博客。后续的工作有，更换一个自己喜欢的主题，增加文章评论功能等。这些工作在完成后，还会抽空写写和大家一起分享。</p>
 <blockquote>
 <p>版权声明：本文为博主原创文章，转载请注明出处GaoPeng blog:<a href="https://gaohdu.github.io">https://gaohdu.github.io</a></p>
 </blockquote>
