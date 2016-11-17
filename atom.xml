@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gaohdu.github.io/"/>
-  <updated>2016-11-04T16:20:03.655Z</updated>
+  <updated>2016-11-07T16:41:30.684Z</updated>
   <id>https://gaohdu.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://gaohdu.github.io/2016/11/04/hexo-github/"/>
     <id>https://gaohdu.github.io/2016/11/04/hexo-github/</id>
     <published>2016-11-03T16:15:38.000Z</published>
-    <updated>2016-11-04T16:20:03.655Z</updated>
+    <updated>2016-11-07T16:41:30.684Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前些天，看到身边的一个朋友利用hexo在github上搭建了一个很酷的个人博客，就忍不住也想要一个。马上就百度了一堆教程来看，发现hexo真的好强大，不需要懂前端，只需要一点计算机基础，就能用hexo搭建一个漂亮的个人博客。但是，不要开心的太早，真正自己去动手实现的时候会碰到各种问题，需要耐心的去解决。下面就分享一下我的搭建过程和遇到的问题。</p>
 <p><strong>注意：</strong>我使用的是window系统,Hexo为3.2.2。</p>
@@ -84,7 +84,9 @@
     </summary>
     
     
-      <category term="Hexo" scheme="https://gaohdu.github.io/tags/Hexo/"/>
+      <category term="hexo" scheme="https://gaohdu.github.io/tags/hexo/"/>
+    
+      <category term="教程" scheme="https://gaohdu.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
