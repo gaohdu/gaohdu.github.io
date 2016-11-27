@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Gaopeng blog</title>
+  <title>Gaopeng&#39;s blog</title>
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gaohdu.github.io/"/>
-  <updated>2016-11-07T16:41:30.684Z</updated>
+  <updated>2016-11-27T04:02:45.908Z</updated>
   <id>https://gaohdu.github.io/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo 主题更改以及评论功能开启</title>
+    <link href="https://gaohdu.github.io/2016/11/17/hexo-individuation/"/>
+    <id>https://gaohdu.github.io/2016/11/17/hexo-individuation/</id>
+    <published>2016-11-17T14:36:42.000Z</published>
+    <updated>2016-11-27T04:02:45.908Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>目前我的个人博客使用的主题是<em>hexo-theme-casual</em>，从<a href="http://github.com/littlewin-wang" target="_blank" rel="external">littlewin的github</a>可以获取该主题。在此感谢<strong>littlewin</strong>。<a href="https://hexo.io/themes/" target="_blank" rel="external">hexo的官网</a>也有很多主题可以下载。有很多这样的大神在，让更换主题的没想像中的难，因为只要去下载主题，然后跟着说明去做就OK了。</p>
+<h2 id="下载主题和安装依赖项"><a href="#下载主题和安装依赖项" class="headerlink" title="下载主题和安装依赖项"></a>下载主题和安装依赖项</h2><p>第一步选一个自己喜欢的主题并下载，下载好的主题应放在你的博客根目录下的themes文件夹下。想要用这个主题，还需要安装一些其它的依赖项，按如下命令安装。</p>
+<blockquote>
+<p>npm install –save hexo-renderer-jade hexo-renderer-scss hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive</p>
+</blockquote>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><ul>
+<li>上面的依赖项都安装好之后，将根目录下的_config.yml文件打开，并将theme修改成casual。<br><img src="https://raw.githubusercontent.com/gaohdu/Imgs/master/individual/individual-2.jpg" alt="theme"></li>
+<li><p>接着在根目录下用命令创建两个页面一个是“about”页面，一个是“tags”页面。</p>
+<blockquote>
+<p>hexo new page about<br>hexo new page tags</p>
+</blockquote>
+</li>
+<li><p>这时我们可以看到根目录下的<code>source</code>文件夹下，多了两个文件夹，就是刚刚用命令生成的，一个是“about”，一个是“tags”，里面有.md文件打开并修改，按如下修改，在about的下面空白部分填上信息就能在页面中显示相应的信息。<br><img src="https://raw.githubusercontent.com/gaohdu/Imgs/master/individual/2-3.jpg" alt=""><br><img src="https://raw.githubusercontent.com/gaohdu/Imgs/master/individual/2-4.jpg" alt=""></p>
+</li>
+<li>页面图标和头像的更改，把图像放到主题目录的<code>source</code>文件夹下，如下把<em> avatar </em>和<em> favicon </em>修改成对应的名字就OK了，<em> aboutme </em>这里添加的文字内容是显示在你头像下的文字。<br><img src="https://raw.githubusercontent.com/gaohdu/Imgs/master/individual/2-5.jpg" alt=""></li>
+<li>配置文件里还有其它的个人信息都改成自己相应的信息就可以了。现在我就可以来生成预览我们的新主题了。</li>
+</ul>
+<h2 id="评论功能"><a href="#评论功能" class="headerlink" title="评论功能"></a>评论功能</h2><p>博客的目地就是用来交流学习的，评论功能是非常重要的，而且像博主这种小白就感觉评论功能感觉起来非常牛。一开始要怎么弄完全一头雾水，后来才发现其实大神们都已经做好了，只要拿来用就好了。下面来分享一下开启多说评论功能。<br>只要弄清需要做什么做哪几步就很简单。首先<strong> 多说 </strong>是什么？可以理解成是一个已经实现可以使用的函数，我们只要去调用就能使用它实现的评论功能了。那么怎么要怎么去<em> 调用 </em>？其实casual主题已经配置好代码，只要我们注册一个多说开发者帐号设置好后，进到主题的配置文件把自己的多说帐号填好，再去本地预览页面你就会发现你的文章下面有评论功能了。<br><img src="https://raw.githubusercontent.com/gaohdu/Imgs/master/individual/2-7.jpg" alt=""></p>
+<p>要是你的主题没有配置好多说代码，那么按下面去做就可以了。</p>
+<ol>
+<li><p>注册<a href="duoshuo.com">多说</a>开发者帐号。</p>
+</li>
+<li><p>进入到多说开发者页面，完成相应帐号设置，把通用代码复制到自己的页面，一般是复制到主题的模版页面就ok了。<br><img src="https://raw.githubusercontent.com/gaohdu/Imgs/master/individual/2-8.jpg" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主题的更换只要按着套路走就ok了，就是按着主题里的说明去做一些相应的修改就ok了。现在想想当时自己做的时候晕头转向的，真是被自己蠢哭，哈哈！</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;目前我的个人博客使用的主题是&lt;em&gt;hexo-theme-casual&lt;/em&gt;，从&lt;a href=&quot;http://github.com/l
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://gaohdu.github.io/tags/hexo/"/>
+    
+      <category term="教程" scheme="https://gaohdu.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo+Github 搭建个人博客</title>
