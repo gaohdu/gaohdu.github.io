@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://gaohdu.github.io/"/>
-  <updated>2017-02-16T15:01:28.989Z</updated>
+  <updated>2017-05-06T17:24:12.547Z</updated>
   <id>https://gaohdu.github.io/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>遗传算法详细介绍及代码</title>
+    <link href="https://gaohdu.github.io/2017/05/07/GA/"/>
+    <id>https://gaohdu.github.io/2017/05/07/GA/</id>
+    <published>2017-05-06T17:17:55.000Z</published>
+    <updated>2017-05-06T17:24:12.547Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>遗传算法模拟了自然界生物种群进化的过程，优胜劣汰，物竞天择，是一种启发式的算法。我们可以知道一个种群是有若干个个体组成的，每个个体又拥有自己的染色体也就是基因序列。在漫长的进化过程中，一代又一代，优秀的个体容易生存，强大的动物可以吸引异性，他的基因也容易被遗传下去，当然偶尔也会发生基因变异产生优秀的个体。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ol>
+<li>个体：就是模拟生物个体，一般就是问题的解，也是搜索空间中的一个点。</li>
+<li>种群：就是模拟生物种群，由若干个个体组成，是搜索控件的一个子集。</li>
+<li>适应度：模拟生物个体对环境的适应程度。</li>
+<li>适应度函数：用来计算个体适应度的函数。</li>
+<li>选择：相当于优秀的个体生存下来.</li>
+<li>染色体：就是个体的编码表示。</li>
+<li>基因：多个基因组成一条染色体。</li>
+<li>选择-复制：根据适应值来选择个体并复制到下一代中。</li>
+<li>交叉：互换两个染色体某些位置上的基因。</li>
+<li>变异：改变染色体某位上的基因。</li>
+</ol>
+<h2 id="算法应用举例"><a href="#算法应用举例" class="headerlink" title="算法应用举例"></a>算法应用举例</h2><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p>使用遗传算法在区间[0，31]上求y=x^2的最大值。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>问题就是在解空间[0，31]中搜索到能是y值最大a点，在区间中的每个点x就是个体，y值可以作为x的适应度。如何对个体x进行适当的编码，我们这里用01编码表示个体，0到31用5位01去编码就可以了，例如一个个体s1=13可以编码成（01101）。</p>
+<h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><ol>
+<li>将种群规模设定为4，在解空间内随机生成4个个体组成初始种群G1：s1=13（01101），s2=24（11000），s3=8（01000），s4=19（10011），适应度函数为y=x^2。</li>
+<li>根据适应度函数为每个个体计算适应度Fs1=13^2=169，Fs2=576，Fs3=64，Fs4=361。</li>
+<li>选着-复制阶段：使用赌轮法来选择生存下去的个体。个体的适应度除以种群的总适应度就是该个体被选中的概率，然后我们在01之间产生一个随机数，按序逐个把个体的被选中概率累加起来，当累加和大于等于随机数时就停下把当前个体选中并复制。直到选出4个个体作为下一个种群的初始种群。被选中概率大的个体也就是适应度大的容易被选中。</li>
+<li>交叉阶段：将第三步产生的结果，按交叉率来选择需要交叉的个体数。若交叉率为100%则全部染色体都进行交叉运算。随机选着两对染色体进行交叉，随机选择交换位数，最后产生交叉好的种群。</li>
+<li>变异阶段：将第四步产生的结果，根据变异率对种群中的个体进行变异操作。对染色体的各个基因，产生一个随机数若小于变异率测变异该基因，我们这里是01反转。</li>
+<li>至此就产生了新一代的种群G2，返回第三步，继续迭代。当然算法需要一个迭代的终止条件，我们可以设置代数作为终止条件，比如设置10代，当算法迭代10次到达G10就停止，输出适应值最好的个体作为搜索到的最优结果。也可以判断在迭代过程中连续几代中适应度就好的个体都没有发生变化时停止迭代。由此我们也可以看出遗传算法不一定能搜索到问题的最优解，可能在需找到最优解前就停止了搜索或者会陷入到局部最优解，这也正是遗传算法的缺点。</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>下面给出一些伪代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//C：染色体容器里面存放染色体，Psize：种群大小，fitness适应度</div><div class="line">//赌轮选择</div><div class="line">Roulette（）｛</div><div class="line">    double R=rand()*1.0/RAND_MAX，sum=0;</div><div class="line">    for(int i=0;i&lt;Psize;i++)&#123;</div><div class="line">        sum+=C[i].fitness；</div><div class="line">        if(sum&gt;=R)&#123;</div><div class="line">            return C[i];</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">｝</div><div class="line"></div><div class="line">//对被选中的染色体c1，c2进行交叉</div><div class="line">Cross(&amp;c1,&amp;c2)&#123;</div><div class="line">    int L=rand()%c1.Length();</div><div class="line">    for(int i=L;i&lt;c1.Length();i++)&#123;</div><div class="line">        //交换对应位置上的基因</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//对染色体c1进行变异操作</div><div class="line">Mutate（&amp;c1）｛</div><div class="line">    int L=rand()%c1.length();</div><div class="line">    //将染色体c1上第L个基因进行反转。</div><div class="line">｝</div></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文介绍的遗传算法是比较简单和传统的，具体问题还需要灵活运用，一些具体实现可以根据自己的需要进行调整。当然现在有很多改进型的遗传算法，可以看一看新的论文文献。<br>PS.在做一个np算法题目的时候遇到了一些麻烦使用了遗传算法之后效果非常不错，所以就写一写简单遗传算法和大家一起分享，当然在解决具体问题时，还需要在这里介绍的基础上加实际的调整和算法中参数的调整，必要时需要看些质量较好的论文，最后说一句，调参就是玄学！！！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;遗传算法模拟了自然界生物种群进化的过程，优胜劣汰，物竞天择，是一种启发式的算法。我们可以知道一个种群是有若干个个体组成的，每个个体又拥有自己
+    
+    </summary>
+    
+    
+      <category term="遗传算法" scheme="https://gaohdu.github.io/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="算法" scheme="https://gaohdu.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>cuda学习入门（一）</title>
